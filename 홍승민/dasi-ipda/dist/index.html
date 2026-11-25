@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>다시입다 · 옷의 다음 이야기</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<header><a class="brand" href="#" aria-label="다시입다 홈">✳ 다시입다<span>다시 입는 기쁨</span></a><nav><button id="home" class="nav active">옷 둘러보기</button><button id="write" class="primary">판매·나눔 등록</button></nav></header>
+<main>
+<section id="browse">
+<div class="hero"><div><p class="eyebrow">REWEAR, RELOVE.</p><h1>내 옷장에 쉼표,<br>다른 누군가에겐 시작.</h1><p>작아진 옷도, 취향이 달라진 옷도.<br>판매와 나눔으로 새로운 주인을 만나보세요.</p><button id="heroWrite" class="dark">내 옷 등록하기</button></div><div class="hero-art" aria-hidden="true"><div class="orbit"></div><div class="hanger">♧</div><div class="shirt">✳</div><span class="art-label">옷의 다음 이야기를 함께해요</span></div></div>
+<div class="notice"><span>✧</span><p><strong>직접 확인하고, 한 번 더 살펴봐요.</strong> 자가 평가 후 사진 검수를 거쳐 등록하는 흐름을 체험하세요.<br><small>현재는 시제품입니다. 실제 AI 분석·거래 없이 사진 수·해상도와 선택한 시연 조건으로 검수합니다. 글은 이 브라우저에만 저장됩니다.</small></p></div>
+<div class="list-heading"><div><p class="eyebrow">FIND YOUR NEXT FAVORITE</p><h2>다시 입을 좋은 옷</h2></div><span id="count"></span></div>
+<div class="toolbar"><div class="chips" role="group" aria-label="거래 유형"><button class="chip selected" data-type="전체">전체</button><button class="chip" data-type="판매">판매</button><button class="chip" data-type="나눔">나눔</button></div><input id="search" type="search" placeholder="어떤 옷을 찾으세요?" aria-label="옷 검색"><select id="ageFilter" aria-label="연령대 필터"><option value="">모든 연령</option><option>아동</option><option>청소년</option><option>성인</option></select></div>
+<div id="cards" class="cards"></div><p id="empty" hidden class="empty">조건에 맞는 옷이 없어요. 다른 검색어로 찾아보세요.</p>
+</section>
+<section id="editor" hidden>
+<button id="back" class="text-button">둘러보기로 돌아가기</button><p class="eyebrow">A NEW CHAPTER FOR YOUR CLOTHES</p><h1 class="form-title">옷의 다음 주인을 찾아요</h1><p class="muted">사진과 상태를 알려주시면, 등록 전 한 번 더 확인해요.</p>
+<form id="form"><div class="form-main"><section class="panel"><h2>옷 사진</h2><p class="muted">앞면 · 뒷면 · 라벨 사진을 권장해요. 최소 3장, 가로·세로 600px 이상.</p><label class="upload" for="photos"><strong>＋ 사진 선택하기</strong><span>JPG, PNG, WebP · 최대 8장 · 장당 10MB</span></label><input id="photos" type="file" accept="image/jpeg,image/png,image/webp" multiple hidden><div id="previews" class="previews"></div><p id="photoError" class="error" role="alert"></p></section>
+<section class="panel"><h2>옷 정보</h2><label>제목<input name="title" required maxlength="60" placeholder="예: 자주 손이 가는 크림색 니트"></label><div class="row"><label>사이즈<input name="size" required maxlength="25" placeholder="예: M / 95 / 120"></label><label>연령대<select name="age"><option>성인</option><option>청소년</option><option>아동</option></select></label></div><label>설명<textarea name="description" rows="4" required maxlength="1500" placeholder="구매 시기, 착용 횟수, 얼룩이나 보풀 등 상태를 솔직하게 적어주세요."></textarea></label></section>
+<section class="panel"><h2>상태와 거래 방식</h2><label>내가 확인한 상태<select name="grade"><option>새것 같음</option><option>양호</option><option>사용감 있음</option></select></label><p class="guide">새것 같음: 눈에 띄는 사용 흔적 없음<br>양호: 가벼운 사용 흔적, 큰 손상 없음<br>사용감 있음: 보풀·얼룩·늘어남 등 사용 흔적 있음</p><div class="row"><label>거래 방식<select name="type"><option>판매</option><option>나눔</option></select></label><label>가격 (원)<input name="price" type="number" min="1" max="10000000" step="1" required placeholder="예: 10000"></label></div></section></div>
+<aside><div class="panel review"><span class="badge">검수 흐름 체험</span><h2>등록 전 한 번 더</h2><ol><li>사진과 옷 정보 입력</li><li>내가 직접 상태 평가</li><li>시연 검수 후 등록</li></ol><label>검수 시연 조건<select name="scenario"><option value="match">상태 등급 일치</option><option value="detail">추가 부위 사진 필요</option><option value="mismatch">등급 불일치</option></select></label><p class="guide">실제 AI가 얼룩·보풀을 판단하지 않습니다. 사진 수와 해상도는 실제로 확인하고, 상태 판정은 위 조건으로 시연합니다.</p><div id="reviewResult" role="status" aria-live="polite"></div><button type="submit" class="primary full" id="submit">사진 확인하고 등록하기</button></div></aside></form>
+</section>
+</main><footer><a class="brand" href="#">✳ 다시입다</a><p>버려지는 옷 대신, 이어지는 이야기.</p><span>판매·나눔 서비스 시제품</span></footer>
+<dialog id="detail"><button id="closeDetail" class="close" aria-label="닫기">×</button><div id="detailBody"></div></dialog><div id="toast" role="status" hidden></div><script src="app.js"></script>
+</body></html>
